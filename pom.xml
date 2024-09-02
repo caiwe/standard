@@ -18,7 +18,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.10</version>
+        <version>3.3.2</version>
         <relativePath/> <!-- 标签告诉Maven从远程仓库查找父项目的POM文件，而不是在当前项目的目录结构中寻找 -->
     </parent>
     <groupId>com.cad</groupId>
@@ -182,7 +182,12 @@
                     </nonFilteredFileExtensions>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
         </plugins>
+
     </build>
 
 </project>
