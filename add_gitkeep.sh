@@ -7,7 +7,7 @@ project_root=$(pwd)
 # 遍历项目中的所有文件夹
 find "$project_root" -type d | while read dir; do
   # 检查目录是否为空
-  if [ -z "$(ls -A $dir)" ]; then
+  if [ -z "$(ls -A "$dir")" ]; then
     # 如果目录为空，则创建一个 .gitkeep 文件
     touch "$dir/.gitkeep"
   fi
