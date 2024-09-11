@@ -1,9 +1,12 @@
 package com.cad.common.model.ddd;
 
+import com.cad.common.marker.DDDInterface;
+
 /**
  * 聚合根标记
  *
  * @author baiyan
  */
-public interface AggregateRoot extends MarkerInterface {
+@Deprecated
+public interface AggregateRoot extends DDDInterface {
 }

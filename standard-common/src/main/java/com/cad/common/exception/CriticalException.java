@@ -42,4 +42,8 @@ public class CriticalException extends BaseServerException {
         super(validateExceptionCode(exceptionCode,ExceptionLevelEnum.CRITICAL));
     }
 
+    public CriticalException(ExceptionCode exceptionCode, String message) {
+        super(validateExceptionCode(exceptionCode.modifyMessage(message), ExceptionLevelEnum.CRITICAL));
+    }
+
 }

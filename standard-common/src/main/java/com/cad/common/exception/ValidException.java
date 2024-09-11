@@ -42,4 +42,8 @@ public class ValidException extends BaseServerException {
         super(validateExceptionCode(exceptionCode,ExceptionLevelEnum.VALID));
     }
 
+    public ValidException(ExceptionCode exceptionCode, String message) {
+        super(validateExceptionCode(exceptionCode.modifyMessage(message), ExceptionLevelEnum.VALID));
+    }
+
 }

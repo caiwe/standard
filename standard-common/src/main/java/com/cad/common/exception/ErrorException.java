@@ -42,4 +42,8 @@ public class ErrorException extends BaseServerException {
         super(validateExceptionCode(exceptionCode,ExceptionLevelEnum.ERROR));
     }
 
+    public ErrorException(ExceptionCode exceptionCode, String message) {
+        super(validateExceptionCode(exceptionCode.modifyMessage(message), ExceptionLevelEnum.ERROR));
+    }
+
 }

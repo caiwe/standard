@@ -1,9 +1,12 @@
 package com.cad.common.exception.basic;
 
+import com.cad.common.exception.WarnException;
+import com.cad.common.exception.enums.BaseExceptionCodeEnum;
 import com.cad.common.exception.enums.ExceptionLevelEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.io.Serial;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -17,6 +20,7 @@ import java.util.Optional;
 @EqualsAndHashCode(callSuper = true)
 public abstract class BaseServerException extends RuntimeException {
 
+    @Serial
     private static final long serialVersionUID = 430933593095358673L;
 
     private final static String EMPTY = "";
@@ -63,13 +67,13 @@ public abstract class BaseServerException extends RuntimeException {
     protected static ExceptionCode validateExceptionCode(ExceptionCode exceptionCode,
                                                          ExceptionLevelEnum exceptionLevelEnum) {
         if (exceptionCode == null) {
-            throw new NullPointerException("ExceptionCode cannot be null");
+            throw new WarnException(BaseExceptionCodeEnum.EXCEPTION_CODE_NOT_EXIST);
         }
         if (Objects.isNull(exceptionLevelEnum)) {
-            throw new NullPointerException("ExceptionLevelEnum cannot be null");
+            throw new WarnException(BaseExceptionCodeEnum.EXCEPTION_CODE_NOT_EXIST);
         }
         if (Objects.equals(exceptionCode.getLevel(), exceptionLevelEnum.getCode())) {
-            throw new IllegalArgumentException("ExceptionCode's level cannot be null");
+            throw new WarnException(BaseExceptionCodeEnum.EXCEPTION_DEFINITION);
         }
         return exceptionCode;
     }

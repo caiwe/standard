@@ -42,4 +42,8 @@ public class WarnException extends BaseServerException {
         super(validateExceptionCode(exceptionCode,ExceptionLevelEnum.WARN));
     }
 
+    public WarnException(ExceptionCode exceptionCode, String message) {
+        super(validateExceptionCode(exceptionCode.modifyMessage(message), ExceptionLevelEnum.WARN));
+    }
+
 }

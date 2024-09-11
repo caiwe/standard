@@ -42,4 +42,8 @@ public class FatalException extends BaseServerException {
         super(validateExceptionCode(exceptionCode,ExceptionLevelEnum.FATAL));
     }
 
+    public FatalException(ExceptionCode exceptionCode, String message) {
+        super(validateExceptionCode(exceptionCode.modifyMessage(message), ExceptionLevelEnum.FATAL));
+    }
+
 }

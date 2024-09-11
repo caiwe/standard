@@ -42,4 +42,8 @@ public class BizException extends BaseServerException {
         super(validateExceptionCode(exceptionCode,ExceptionLevelEnum.BIZ));
     }
 
+    public BizException(ExceptionCode exceptionCode, String message) {
+        super(validateExceptionCode(exceptionCode.modifyMessage(message), ExceptionLevelEnum.BIZ));
+    }
+
 }
